@@ -4,6 +4,8 @@ from collections import OrderedDict
 
 #薛回应P图 4154417035431509
 #李转账捐款 4155545118733236
+#鹿晗微博 4160547165300149
+#关晓彤微博 4160547694498927
 weibo_id = input('输入单条微博ID：')
 # url='https://m.weibo.cn/single/rcList?format=cards&id=' + weibo_id + '&type=comment&hot=1&page={}' #爬热门评论
 url='https://m.weibo.cn/api/comments/show?id=' + weibo_id + '&page={}' #爬时间排序评论
@@ -21,13 +23,13 @@ headers = {
 i = 0
 comment_num = 1
 while True:
-    # if i==1:     #24-29行 爬热门评论
+    # if i==1:     #26-31行 爬热门评论
     #     r = requests.get(url = url.format(i),headers = headers)
     #     comment_page = r.json()[1]['card_group']
     # else:
     #     r = requests.get(url = url.format(i),headers = headers)
     #     comment_page = r.json()[0]['card_group']
-    r = requests.get(url = url.format(i),headers = headers)  #30-31行 爬时间排序评论
+    r = requests.get(url = url.format(i),headers = headers)  #32-33行 爬时间排序评论
     comment_page = r.json()['data']
     if r.status_code ==200:
         try:
@@ -49,7 +51,7 @@ while True:
                 print(source + '\r\n')
                 conn =pymysql.connect(host='服务器IP(默认是127.0.0.1)',user='服务器名(默认是root)',password='服务器密码',charset="utf8",use_unicode = False)    #连接服务器
                 cur = conn.cursor()
-                sql = "insert into xue.xueresponse(comment_id,user_name,created_at,text,likenum,source) values(%s,%s,%s,%s,%s,%s)"
+                sql = "insert into nlp.love_guan(comment_id,user_name,created_at,text,likenum,source) values(%s,%s,%s,%s,%s,%s)"
                 param = (comment_id,user_name,created_at,text,likenum,source)
                 try:
                     A = cur.execute(sql,param)
