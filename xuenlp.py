@@ -1,9 +1,13 @@
 # encoding:UTF-8
 import pymysql,re
+import jieba
+import jieba.posseg as pseg
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.misc import imread
 from snownlp import SnowNLP
+from wordcloud import WordCloud,ImageColorGenerator
 from collections import Counter
 
 def readmysql(): #读取数据库
