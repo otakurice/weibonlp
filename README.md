@@ -13,7 +13,7 @@ xuenlp.py功能包含：
 - 统计微博评论中的粉丝排行前20
 
 #### 博客
-- 代码可结合知乎文章阅读：https://mp.weixin.qq.com/s/a0904t-7Yvhi0VO_n-6CEw
+- 代码可结合文章阅读：https://mp.weixin.qq.com/s/a0904t-7Yvhi0VO_n-6CEw
 
 #### 关于我
 - 一个特别擅长不务正业的人
